@@ -1,5 +1,18 @@
 FROM openjdk:25-jdk
 RUN mkdir /app
-COPY out/production/Assignment/ .
+
+# Copy all compiled classes
+COPY out/production/Assignment/ /tmp
+
+# Create and set working directory
 WORKDIR /tmp
-CMD ["java", "RwandaPolice"]
+
+
+
+# Run one question at a time (choose which to execute)
+CMD ["java", "controller.MainMenu"]
+
+
+
+
+
